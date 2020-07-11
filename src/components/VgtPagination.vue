@@ -73,7 +73,7 @@ export default {
   },
 
   data: () => ({
-    currentPage: 0,
+    currentPage: 1,
     prevPage: 0,
     currentPerPage: 10,
     rowsPerPageOptions: [],
@@ -211,8 +211,6 @@ export default {
   },
 
   mounted() {
-    //trigger a page change event when loaded - resolve no event fired after 2.16.5
-    this.pageChanged();
   },
 
   components: {

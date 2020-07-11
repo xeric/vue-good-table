@@ -1011,14 +1011,18 @@ export default {
       this.emitSelectedRows();
     },
 
-    changePage(value) {
+    changePage(value, emit = false) {
       if (this.paginationOptions.enabled) {
         let paginationWidget = this.$refs.paginationBottom;
         if (this.paginationOptions.position === 'top') {
           paginationWidget = this.$refs.paginationTop;
         }
         if (paginationWidget) {
-          paginationWidget.currentPage = value;
+          if (emit) {
+            paginationWidget.changePage(value);
+          } else {
+            paginationWidget.currentPage = value;
+          }
           // we also need to set the currentPage
           // for table.
           this.currentPage = value;
@@ -1451,7 +1455,7 @@ export default {
 
       if (typeof setCurrentPage === 'number') {
         setTimeout(() => {
-          this.changePage(setCurrentPage);
+          this.changePage(setCurrentPagem, true);
         }, 500);
       }
     },
