@@ -212,7 +212,7 @@ export default {
 
   mounted() {
     //trigger a page change event when loaded - resolve no event fired after 2.16.5
-    this.changePage(1);
+    this.pageChanged();
   },
 
   components: {
